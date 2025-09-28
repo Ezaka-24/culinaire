@@ -24,4 +24,14 @@ class Recette extends Model
         'photo',//recuperer le photo dans storage.
     ];
 
+    public function likes()
+{
+    return $this->hasMany(Like::class);
+}
+
+public function commentaires()
+{
+    return $this->hasMany(Commentaire::class);
+}
+
 }

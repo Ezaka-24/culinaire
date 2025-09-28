@@ -36,58 +36,28 @@
                         Rechercher
                     </button>
                 </form>
+@section('content')
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-100 to-pink-100">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center text-yellow-600 mb-6">Abonnez-vous</h1>
 
-                <a href="{{ route('register') }}" class="ml-4">
-                    <i class="fa-solid fa-user bg-green-500 p-3 rounded-full hover:bg-green-600"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+        <p class="mb-4 text-center">En vous abonnant, vous pourrez :</p>
+        <ul class="list-disc list-inside mb-6 text-gray-700">
+            <li>Télécharger des recettes</li>
+            <li>Partager vos propres recettes</li>
+            <li>Accéder à du contenu exclusif</li>
+        </ul>
 
-    <div class="bg-blue-200 text-gray-900">
-
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide relative">
-                    <img src="image/couverture.jpeg" alt="Photo de couverture 1" class="h-full w-full object-cover filter blur-sm">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center">
-                        <h1 class="text-white text-7xl font-bold">Mon Panier Gourmand</h1>
-                        <p class="text-4xl text-white">Partagez votre passion culinaire</p>
-                    </div>
-                </div>
-
-                <div class="swiper-slide relative">
-                    <img src="image/olayinka-babalola-r01ZopTiEV8-unsplash.jpg" alt="Photo de couverture 2" class="h-full w-full object-cover filter blur-sm">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center">
-                        <h1 class="text-white text-7xl font-bold">Découvrez des saveurs</h1>
-                        <p class="text-4xl text-white">Explorez des milliers de recettes</p>
-                    </div>
-                </div>
-                
-                <div class="swiper-slide relative">
-                    <img src="image/laura-barry-zXNk-1xX5Gw-unsplash (1).jpg" alt="Photo de couverture 3" class="h-full w-full object-cover filter blur-sm">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center">
-                        <h1 class="text-white text-7xl font-bold">Rejoignez la communauté</h1>
-                        <p class="text-4xl text-white">Partagez vos créations</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-
-        <div class="  px-6 text-center mt-8">
-            <h2 class="text-3xl font-semibold mb-2">"Bienvenue dans notre communauté culinaire !"</h2>
-            <p class="text-xl text-gray-700 mb-4">Découvrez des milliers de recettes, partagez vos créations et rejoignez une communauté passionnée de cuisine.</p>
-        </div>
-
-        <div class=" space-x-10 p-4 m-6 text-center">
-            <a href="{{ route('recette.index') }}" class="items-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded shadow">Voir les recettes</a>
-            <a href="{{ route('recette.create') }}" class="items-center bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded shadow">Partager une recette</a>
-        </div>
-
+        <form action="{{ route('abonnement.activer') }}" method="POST" class="text-center">
+            @csrf
+            <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+                S'abonner maintenant
+            </button>
+        </form>
     </div>
+</div>
+@endsection
+
 
     <footer class="bg-gray-800 text-white mt-16">
         <div class="max-w-7xl mx-auto px-6 py-10">
@@ -121,26 +91,6 @@
             <p class="text-center text-gray-500 mt-6 text-sm">© {{ date('2025') }} Mon Panier Gourmand. Tous droits réservés.</p>
         </div>
     </footer>
-
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 30,
-            effect: "fade",
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
 
 </body>
 </html>

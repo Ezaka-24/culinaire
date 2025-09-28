@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class RecetteController extends Controller
 {
+
+
     /**
      * Le constructeur pour appliquer le middleware d'authentification.
      */
-    
+
     public function construct()
     {
         // Appeler le constructeur de la classe parente
@@ -23,14 +25,16 @@ class RecetteController extends Controller
     }
 
     
+
+
     /**
      * Affiche la liste des recettes, avec une option de recherche.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
     
-    
-    public function index(Request $request)
+
+public function index(Request $request)
     {
         $search = $request->input('search');
 
@@ -45,19 +49,22 @@ class RecetteController extends Controller
 
     
     
+
     /**
      * Affiche le formulaire pour créer une nouvelle recette.
      * @return \Illuminate\View\View
      */
     
-    
-    public function create()
-    {
-        return view('recette.create');
-    }
+public function create()
+{
+    return view('recette.create');
+
+    // logique pour enregistrer une recette
+}
 
     
-    
+
+
     /**
      * Enregistre une nouvelle recette dans la base de données.
      * @param  \Illuminate\Http\Request  $request
@@ -75,14 +82,23 @@ class RecetteController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($request->hasFile('photo')) {
-            $validated['photo'] = $request->file('photo')->store('recettes', 'public/storage');
-        }
+            // ...
+    if ($request->hasFile('photo')) {
+        // Le nom du dossier est 'recettes' et le nom du disque est 'public'.
+        $validated['photo'] = $request->file('photo')->store('recettes', 'public');
+    }
+    // ...
+
+        
 
         Recette::create($validated);
 
         return redirect()->route('recette.index')->with('success', 'Recette partagée !');
+
+
     }
+
+
 
 public function show($id)
 {
@@ -90,7 +106,11 @@ public function show($id)
     
     return view('recette.show', compact('recette'));
 }
- 
+
+
+
+
+
 public function download($id)
 
 {
@@ -102,6 +122,11 @@ public function download($id)
 
     return redirect()->back()->with('error', 'Fichier non trouvé.');
 }
+
+
+
+
+
 public function destroy($id)
 {
 $recette = Recette::findOrFail($id);
@@ -121,6 +146,9 @@ return redirect()->route('recette.index')->with('success', 'Recette supprimée a
      */
 
 
+
+
+
     public function edit($id)
     {
         $recette = Recette::findOrFail($id);
@@ -133,5 +161,10 @@ return redirect()->route('recette.index')->with('success', 'Recette supprimée a
      */
 
 
+    public function dashboard()
+{
+    $recettes = Recette::where('user_id', auth()->id())->get();
+    return view('dashboard', compact('recettes'));
 }
 
+}
