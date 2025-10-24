@@ -44,11 +44,11 @@
         </div>
     </header>
 
-    <div class="bg-blue-200 text-gray-900">
+    <div class="bg-blue-200 text-gray-900 ">
 
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative md:">
                     <img src="image/couverture.jpeg" alt="Photo de couverture 1" class="h-full w-full object-cover filter blur-sm">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center">
                         <h1 class="text-white text-7xl font-bold">Mon Panier Gourmand</h1>

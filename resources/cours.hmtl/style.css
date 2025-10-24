@@ -1,0 +1,221 @@
+/*style.css*/
+
+body {
+    background-color: #b1c3ce;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+h1 {
+    color:cadetblue;
+    text-align: center;
+    font-size: 2.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3{
+    color: chocolate;
+    text-decoration: double;
+    font-size: x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: auto;
+}
+
+
+h2 {
+    color: cadetblue;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 0;
+margin-left: 40px;
+}
+
+ul, ol {
+    margin-left: 60px;
+    font-size: 1.1em;
+}
+
+img {
+    max-width: 300px;
+    margin: 20px auto;
+    max-width: 100%;
+    height: 300px;
+    gap: 40px;
+
+}
+
+.animated-title {
+  font-size: 3.5rem;
+  animation: fadeInDown 2s ease-out forwards;
+  opacity: 0;
+}
+
+.animated-img {
+  width: 300px;
+  margin-top: 40px;
+  animation: zoomIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: skew(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: skew(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+a {
+    display: inline-block;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 40px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* ou une hauteur fixe */
+}
+
+.box {
+  background-color: #0099cc;
+  color: white;
+  padding: 40px;
+  border-radius: 8px;
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.item {
+  width: 200px;
+  height: 150px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+.navbar{
+     position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.sticky-btn {
+  position: sticky;
+  top: 20px;
+  background: orange;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/*pour mobile(moins de 600px)*/
+@media(max-widht:600px)
+{
+  body{
+    background-color: #b1c3ce;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+  }
+}
+
+/*pour tablette(601px-1024px)*/
+@media(min-widht:601px) and (max-widht:1024px)
+{
+   body{
+    background-color: #b1c3ce;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+  }
+}
+
+.box{
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background-color: orchid;
+  animation: slide 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide{
+  from{
+    transform: translateX(0);
+  }
+  form{
+    transform: translateX(100px);
+  }
+}
+
+.btn{
+  display: inline;
+  margin-top:20px ;
+  padding: 10px 20px;
+  background-color: brown;
+  color: burlywood;
+  text-decoration: chocolate;
+  border-radius: 8px;
+  transition: background-color 0.5s ease;
+}
+
+btn :hover{
+  background-color: aqua;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card{
+  width: auto;
+  overflow: rotate;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  transform: skew(30deg);
+  transform: rotate(20deg);
+
+}
+
+.card img{
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img{
+  transform: scale(1.1) rotate(2deg);
+}
